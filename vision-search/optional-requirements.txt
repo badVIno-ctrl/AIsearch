@@ -1,0 +1,12 @@
+# --- Необязательные библиотеки (ставятся отдельно, по желанию) ---
+# Установить:  pip install -r optional-requirements.txt
+#
+# Без них приложение работает полностью — это лишь ускорение и бонусы.
+
+# Быстрый векторный поиск на десятках тысяч фото.
+faiss-cpu>=1.7
+
+# OCR: поиск по тексту внутри картинок.
+# ВАЖНО: кроме этого пакета нужен системный движок tesseract-ocr
+# (Windows: с сайта UB-Mannheim; macOS: brew install tesseract; Linux: apt install tesseract-ocr).
+pytesseract>=0.3.10

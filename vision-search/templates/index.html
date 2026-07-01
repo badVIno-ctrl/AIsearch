@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vision Search — нейропоиск изображений</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body data-theme="dark">
+<div class="app">
+
+  <!-- Шапка -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">◉</span>
+      <div>
+        <h1>Vision Search</h1>
+        <p class="sub">Нейропоиск картинок по описанию или фото · CLIP</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="ghost" id="btnDuplicates" title="Найти дубликаты">⧉ Дубли</button>
+      <button class="ghost" id="btnReindex" title="Переиндексировать папку">↻</button>
+      <button class="ghost" id="btnTheme" title="Сменить тему">☾</button>
+      <div class="status" id="status">…</div>
+    </div>
+  </header>
+
+  <!-- Панель настроек поиска -->
+  <div class="toolbar">
+    <div class="folder">
+      <span class="muted">Папка:</span>
+      <input type="text" id="folder" placeholder="Путь к папке с фото…" />
+      <button class="ghost" id="btnFolder">Открыть</button>
+    </div>
+    <div class="threshold">
+      <span class="muted">Порог схожести:</span>
+      <input type="range" id="minScore" min="0" max="60" value="0" />
+      <span id="minScoreVal" class="muted">0%</span>
+    </div>
+  </div>
+
+  <!-- Лента чата -->
+  <main class="chat" id="chat">
+    <div class="msg bot">
+      <div class="bubble">
+        Привет! Я найду картинку в твоей папке.
+        Напиши <b>описание</b> (можно по-русски!) или <b>загрузи фото</b> —
+        найду самые похожие. Можно и то, и другое сразу («как это фото, но красное»).
+      </div>
+    </div>
+  </main>
+
+  <!-- История запросов -->
+  <div class="history" id="history"></div>
+
+  <!-- Поле ввода -->
+  <form class="composer" id="composer">
+    <label class="attach" title="Прикрепить фото">
+      <input type="file" id="file" accept="image/*" hidden />
+      <span>📎</span>
+    </label>
+    <input type="text" id="query" placeholder="Опиши картинку… или перетащи / вставь фото" autocomplete="off" />
+    <button type="submit" id="send">Найти</button>
+  </form>
+  <div class="drop-hint" id="drophint">Отпусти фото — найду похожие 🔍</div>
+</div>
+
+<!-- Превью картинки на весь экран -->
+<div class="lightbox" id="lightbox"><img alt="preview" /></div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
